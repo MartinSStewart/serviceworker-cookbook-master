@@ -28,14 +28,10 @@ module.exports = function (app, route) {
   app.post(route + "sendNotification", function (req, res) {
     const subscription = req.body.subscription;
     const payload = null;
-    const options = {
-      TTL: req.body.ttl,
-    };
-
 
     setTimeout(function () {
       webPush
-        .sendNotification(subscription, payload, options)
+        .sendNotification(subscription, payload)
         .then(function () {
           res.sendStatus(201);
         })
