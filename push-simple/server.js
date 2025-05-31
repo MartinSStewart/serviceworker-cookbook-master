@@ -10,7 +10,7 @@ var VAPID_PUBLIC_KEY = "BKUb_vkU2YRb7d-ybxMoJ44-21RAhTHufbZ_szx2yEYtx6OosuQ0goTn
 var VAPID_PRIVATE_KEY = "95RlptcaIk5N2YbDgTJV8iNdkb6e7pAkWa7EVYwJQvE"
 // Set the keys used for encrypting the push messages.
 webPush.setVapidDetails(
-  "https://example.com/",
+  "https://at-chat.app/",
   VAPID_PUBLIC_KEY,
   VAPID_PRIVATE_KEY
 );
