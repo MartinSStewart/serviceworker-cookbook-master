@@ -6,10 +6,10 @@ const webPush = require("web-push");
 
 
 
-var VAPID_PUBLIC_KEY = "BAfbJP-p1MQ6mFfKbkTf5p315_jYS6K2RDQqUIfBu74dzOnDbFk43H9IZG7Sa205A74IuyAfHPTuaCEcBv90NHQ"
-//"BKUb_vkU2YRb7d-ybxMoJ44-21RAhTHufbZ_szx2yEYtx6OosuQ0goTngtjkJiw1vs0Y5p7Y5A8c43xuLNQm4_E"
-var VAPID_PRIVATE_KEY = "qDiZYLexlEKrvPVi8j7oGfV6Nm5qJrTPIXXFGNEqyfY"
-//"95RlptcaIk5N2YbDgTJV8iNdkb6e7pAkWa7EVYwJQvE"
+var VAPID_PUBLIC_KEY = //"BAfbJP-p1MQ6mFfKbkTf5p315_jYS6K2RDQqUIfBu74dzOnDbFk43H9IZG7Sa205A74IuyAfHPTuaCEcBv90NHQ"
+            "BKUb_vkU2YRb7d-ybxMoJ44-21RAhTHufbZ_szx2yEYtx6OosuQ0goTngtjkJiw1vs0Y5p7Y5A8c43xuLNQm4_E";
+var VAPID_PRIVATE_KEY = //"qDiZYLexlEKrvPVi8j7oGfV6Nm5qJrTPIXXFGNEqyfY"
+            "95RlptcaIk5N2YbDgTJV8iNdkb6e7pAkWa7EVYwJQvE";
 // Set the keys used for encrypting the push messages.
 webPush.setVapidDetails(
   "https://at-chat.app/",
