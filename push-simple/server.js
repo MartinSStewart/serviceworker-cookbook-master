@@ -3,23 +3,26 @@
 // For details, see https://tools.ietf.org/html/draft-ietf-webpush-protocol and
 // https://tools.ietf.org/html/draft-ietf-webpush-encryption.
 const webPush = require("web-push");
+const crypto = require('crypto');
 
+console.log(webPush);
 
-
-var VAPID_PUBLIC_KEY = //"BAfbJP-p1MQ6mFfKbkTf5p315_jYS6K2RDQqUIfBu74dzOnDbFk43H9IZG7Sa205A74IuyAfHPTuaCEcBv90NHQ"
-            "BKUb_vkU2YRb7d-ybxMoJ44-21RAhTHufbZ_szx2yEYtx6OosuQ0goTngtjkJiw1vs0Y5p7Y5A8c43xuLNQm4_E";
-var VAPID_PRIVATE_KEY = //"qDiZYLexlEKrvPVi8j7oGfV6Nm5qJrTPIXXFGNEqyfY"
-            "95RlptcaIk5N2YbDgTJV8iNdkb6e7pAkWa7EVYwJQvE";
+//var VAPID_PUBLIC_KEY = //"BAfbJP-p1MQ6mFfKbkTf5p315_jYS6K2RDQqUIfBu74dzOnDbFk43H9IZG7Sa205A74IuyAfHPTuaCEcBv90NHQ"
+//            "BKUb_vkU2YRb7d-ybxMoJ44-21RAhTHufbZ_szx2yEYtx6OosuQ0goTngtjkJiw1vs0Y5p7Y5A8c43xuLNQm4_E";
+//var VAPID_PRIVATE_KEY = //"qDiZYLexlEKrvPVi8j7oGfV6Nm5qJrTPIXXFGNEqyfY"
+//            "95RlptcaIk5N2YbDgTJV8iNdkb6e7pAkWa7EVYwJQvE";
 // Set the keys used for encrypting the push messages.
-webPush.setVapidDetails(
+const publicKey = webPush.setVapidDetails(
   "https://at-chat.app/",
-  VAPID_PUBLIC_KEY,
-  VAPID_PRIVATE_KEY
+  "",
+  ""
 );
 
 module.exports = function (app, route) {
   app.get(route + "vapidPublicKey", function (req, res) {
-    res.send(VAPID_PUBLIC_KEY);
+    console.log("vapidPublicKey");
+    console.log(publicKey);
+    res.send(publicKey);
   });
 
   app.post(route + "register", function (req, res) {
