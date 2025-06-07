@@ -7,22 +7,9 @@ const crypto = require('crypto');
 
 console.log(webPush);
 
-//var VAPID_PUBLIC_KEY = //"BAfbJP-p1MQ6mFfKbkTf5p315_jYS6K2RDQqUIfBu74dzOnDbFk43H9IZG7Sa205A74IuyAfHPTuaCEcBv90NHQ"
-//            "BKUb_vkU2YRb7d-ybxMoJ44-21RAhTHufbZ_szx2yEYtx6OosuQ0goTngtjkJiw1vs0Y5p7Y5A8c43xuLNQm4_E";
-//var VAPID_PRIVATE_KEY = //"qDiZYLexlEKrvPVi8j7oGfV6Nm5qJrTPIXXFGNEqyfY"
-//            "95RlptcaIk5N2YbDgTJV8iNdkb6e7pAkWa7EVYwJQvE";
-// Set the keys used for encrypting the push messages.
-const publicKey = webPush.setVapidDetails(
-  "https://at-chat.app/",
-  "",
-  ""
-);
-
 module.exports = function (app, route) {
   app.get(route + "vapidPublicKey", function (req, res) {
-    console.log("vapidPublicKey");
-    console.log(publicKey);
-    res.send(publicKey);
+    res.send(webPush.webPush.webPushKeys.publicKey);
   });
 
   app.post(route + "register", function (req, res) {
